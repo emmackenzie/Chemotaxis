@@ -8,7 +8,7 @@ Bacteria [] colony;
  	size(600,600);
 
  	frameRate(10);
- 	colony = new Bacteria[100];
+ 	colony = new Bacteria[2];
  		for (int i = 0; i < colony.length; i ++) {
  			colony[i]= new Bacteria();
  		}
@@ -27,13 +27,14 @@ Bacteria [] colony;
 
  class Bacteria    
  {     
-
+ 	int mouseX, mouseY;
  	int myX, myY;
  	int bColor;
  	Bacteria()
  	{
  		myX = 300;
  		myY = 300;
+ 		
  		bColor = color(0,(int)(Math.random()*255),0);
  	}
 
@@ -42,11 +43,12 @@ Bacteria [] colony;
 		myX = myX + (int)(Math.random()*9)-4;
  		myY = myY + (int)(Math.random()*9)-4;
 
- 		/*if (myX > 600  myY < 600)
- 		{
- 			myX = myX + (int)(Math.random()*9)- 18;
- 			myY = myY + (int)(Math.random()*9) - 18;
- 		}*/
+ 		if (myX < mouseX)
+ 			myX = myX +(int)(Math.random()*9);
+ 		else if (myX > mouseX)
+ 			myX = myX +(int)(Math.random()*9)- 6;
+ 		else 
+ 			myX = myX;
 
  	}  
 
